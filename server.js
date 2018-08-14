@@ -17,10 +17,10 @@ function emitNewOrder(http_server){
 
 	io.sockets.on('connection', function(socket){
 		socket.on("nueva_orden", function(data){
+			io.emit("nueva_orden", data);
 			console.log(data);
-		})
+		});
 	});
 }
-
 
 emitNewOrder(http_server);
